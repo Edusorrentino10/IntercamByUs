@@ -1,24 +1,15 @@
-import Lottie from 'react-lottie'
+import Lottie from 'lottie-react'
 import { LoadingContainer } from './styles'
 import LoadingAnimation from '@/animations/Loading.json'
 
-const defaultOptionsAnimationLoading = {
-  loop: true,
-  autoplay: true,
-  animationData: LoadingAnimation,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice',
-  },
+const style = {
+  height: 120,
 }
 
 export function LoadingComponent() {
   return (
     <LoadingContainer>
-      <Lottie
-        isClickToPauseDisabled
-        width={120}
-        options={defaultOptionsAnimationLoading}
-      />
+      <Lottie style={style} animationData={LoadingAnimation} loop={true} />
     </LoadingContainer>
   )
 }

@@ -1,4 +1,4 @@
-import Lottie from 'react-lottie'
+import Lottie from 'lottie-react'
 import { AnimationContent, ReturnButton } from './styles'
 import ErrorAnimation from '@/animations/error404Animation.json'
 import { ArrowLeft } from 'phosphor-react'
@@ -6,13 +6,8 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { LoadingComponent } from '../Loading'
 
-const defaultOptionsAnimationError = {
-  loop: true,
-  autoplay: true,
-  animationData: ErrorAnimation,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice',
-  },
+const style = {
+  height: 280,
 }
 
 export function ErrorComponent() {
@@ -27,7 +22,7 @@ export function ErrorComponent() {
 
   return (
     <AnimationContent>
-      <Lottie width={280} options={defaultOptionsAnimationError} />
+      <Lottie style={style} animationData={ErrorAnimation} loop={true} />
       <ReturnButton onClick={handleBackToIntercambio}>
         <ArrowLeft size={22} weight="bold" />
         Voltar

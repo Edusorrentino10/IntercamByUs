@@ -22,8 +22,10 @@ export const Content = styled('div', {
   },
 
   '@media (max-width:760px)': {
+    fontSize: '0.875rem',
+    maxWidth: 'calc(100vw - 20%)',
     p: {
-      fontSize: '$default',
+      fontSize: '0.875rem',
     },
 
     h1: {
@@ -55,6 +57,29 @@ export const TopicsTitle = styled('div', {
       backgroundColor: '$blue',
       display: 'inline-block',
       borderRadius: '2px',
+    },
+  },
+
+  '@media (max-width:420px)': {
+    '&:nth-child(2n)': {
+      '&:before': {
+        content: '',
+        width: '22px',
+        height: '29px',
+        backgroundColor: '$yellow',
+        display: 'inline-block',
+        borderRadius: '2px',
+      },
+    },
+    '&:nth-child(3)': {
+      '&:before': {
+        content: '',
+        width: '26px',
+        height: '29px',
+        backgroundColor: '$blue',
+        display: 'inline-block',
+        borderRadius: '2px',
+      },
     },
   },
 })
