@@ -9,8 +9,6 @@ import {
   SchoolName,
   FlexAlignItemsArea,
   PriceContent,
-  AnimationContent,
-  ReturnButton,
 } from './styles'
 import Footer from '@/components/Footer'
 import {
@@ -24,19 +22,8 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { api } from '@/lib/axios'
-import Lottie from 'react-lottie'
-import animationError from '@/animations/error404Animation.json'
 import { LoadingComponent } from '@/components/Loading'
 import { ErrorComponent } from '@/components/Error'
-
-const defaultOptionsAnimationError = {
-  loop: true,
-  autoplay: true,
-  animationData: animationError,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice',
-  },
-}
 
 interface CityProps {
   id: string
@@ -84,7 +71,7 @@ export default function OrcamentoCidade() {
 
       const destinationValidated = availableCities.includes(
         String(router.query.destino).charAt(0).toUpperCase() +
-        String(router.query.destino).slice(1),
+          String(router.query.destino).slice(1),
       )
       if (
         !destinationValidated &&
@@ -144,7 +131,7 @@ export default function OrcamentoCidade() {
                 Object.values(jsonDestionation).map((destination) =>
                   Object.values(destination).map((selectedCity, key) =>
                     selectedCity.city.toLowerCase() ===
-                      nameDestination.toLowerCase() ? (
+                    nameDestination.toLowerCase() ? (
                       <Box key={key} onClick={() => router.push('/contato')}>
                         <ImageBox>
                           <Image

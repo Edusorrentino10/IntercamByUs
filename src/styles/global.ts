@@ -37,7 +37,7 @@ export const globalStyles = globalCss({
     outlineColor: '$colors$yellow',
   },
 
-  input: {
+  'input, textarea': {
     outlineColor: '$blue',
   },
 })
