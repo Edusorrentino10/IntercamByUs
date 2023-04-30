@@ -19,6 +19,7 @@ export const OrcamentoContent = styled('div', {
   },
 
   '@media (max-width:760px)': {
+    maxWidth: 'calc(100vw - 20%)',
     p: {
       fontSize: '$default',
     },

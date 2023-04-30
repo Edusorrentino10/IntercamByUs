@@ -18,6 +18,7 @@ export const TitleArea = styled('div', {
 
   '@media (max-width: 560px)': {
     marginTop: '140px',
+    maxWidth: 'calc(100vw - 20%)',
     h1: {
       fontSize: '$mobileH1',
     },
@@ -42,6 +43,10 @@ export const BoxAreaContent = styled('div', {
   p: {
     fontSize: '$md',
   },
+
+  '@media (max-width: 560px)': {
+    maxWidth: 'calc(100vw - 20%)',
+  },
 })
 
 export const Box = styled('div', {
@@ -56,6 +61,11 @@ export const Box = styled('div', {
 
   '&:hover': {
     transform: 'scale(1.02)',
+  },
+
+  '@media(max-width: 560px)': {
+    width: '300px',
+    overflow: 'hidden',
   },
 })
 

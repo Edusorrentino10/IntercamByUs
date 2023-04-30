@@ -59,7 +59,8 @@ export const MenuNavigation = styled('ul', {
           transform: 'translateX(-50%)',
           fontSize: '$lg',
           textAlign: 'center',
-          gap: '50px',
+          gap: '45px',
+          draggable: true,
         },
       },
       false: {

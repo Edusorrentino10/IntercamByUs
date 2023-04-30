@@ -23,9 +23,10 @@ export const Content = styled('div', {
     marginBottom: '50px',
   },
 
-  '@media (max-width:760px)': {
+  '@media (max-width:780px)': {
+    maxWidth: 'calc(100vw - 20%)',
     p: {
-      fontSize: '$default',
+      fontSize: '0.875rem',
     },
 
     h1: {
@@ -78,6 +79,23 @@ export const Form = styled('form', {
       opacity: '0.96',
     },
   },
+
+  '@media (max-width: 780px)': {
+    width: '280px',
+    gap: '15px',
+
+    input: {
+      fontSize: '0.75rem',
+    },
+
+    label: {
+      fontSize: '0.8rem',
+    },
+
+    textarea: {
+      fontSize: '0.75rem',
+    },
+  },
 })
 
 export const ServicesContent = styled('div', {
@@ -85,12 +103,38 @@ export const ServicesContent = styled('div', {
   justifyContent: 'center',
   alignContent: 'center',
   gap: '120px',
+
+  '@media (max-width: 1095px)': {
+    gap: '80px',
+  },
+
+  '@media (max-width: 980px)': {
+    gap: '40px',
+  },
+
+  '@media (max-width: 895px)': {
+    gap: '25px',
+  },
+
+  '@media (max-width: 780px)': {
+    flexDirection: 'column-reverse',
+    alignItems: 'center',
+    gap: '50px',
+  },
 })
 
 export const VerticalLine = styled('div', {
   border: '1px solid $gray100',
   minHeight: '100%',
   opacity: '0.5',
+
+  '@media (max-width: 780px)': {
+    flexDirection: 'column-reverse',
+    alignItems: 'center',
+    gap: '0px',
+    minWidth: '280px',
+    minHeight: '0',
+  },
 })
 
 export const WhatsappBox = styled('div', {
@@ -100,6 +144,7 @@ export const WhatsappBox = styled('div', {
   flexDirection: 'column',
   justifyContent: 'space-between',
   alignContent: 'center',
+  transition: '0.3s',
 
   'input[type=submit]': {
     backgroundColor: '#25d366',
@@ -120,6 +165,28 @@ export const WhatsappBox = styled('div', {
     color: '$blue',
     textAlign: 'center',
   },
+
+  '@media (max-width: 980px)': {
+    width: '300px',
+
+    h3: {
+      fontSize: '1rem',
+    },
+  },
+
+  '@media (max-width: 895px)': {
+    width: '360px',
+
+    h3: {
+      fontSize: '0.9rem',
+    },
+  },
+
+  '@media (max-width: 780px)': {
+    width: '280px',
+    minHeight: '0',
+    gap: '25px',
+  },
 })
 
 export const WhatsappContent = styled('div', {
@@ -138,6 +205,29 @@ export const WhatsappContent = styled('div', {
   h3: {
     padding: '0px 0px 27px',
   },
+
+  '@media (max-width: 980px)': {
+    gap: '10px',
+
+    h2: {
+      padding: '25px 0px',
+      fontSize: '1.3rem',
+    },
+  },
+
+  '@media (max-width: 895px)': {
+    h2: {
+      fontSize: '1.1rem',
+    },
+  },
+
+  '@media (max-width: 780px)': {
+    gap: '0px',
+    h4: {
+      padding: '20px 0px',
+      fontSize: '0.8rem',
+    },
+  },
 })
 
 export const SchedulesBox = styled('div', {
@@ -155,6 +245,21 @@ export const SchedulesBox = styled('div', {
     color: '$gray800',
     padding: '20px 0px',
   },
+
+  '@media (max-width: 980px)': {
+    h4: {
+      padding: '25px 0px',
+      fontSize: '0.875rem',
+    },
+  },
+
+  '@media (max-width: 780px)': {
+    width: '90%',
+    h4: {
+      padding: '15px 0px',
+      fontSize: '0.8rem',
+    },
+  },
 })
 
 export const SpanBox = styled('div', {
@@ -164,4 +269,14 @@ export const SpanBox = styled('div', {
   alignItems: 'center',
   gap: '10px',
   padding: '20px',
+
+  '@media (max-width: 980px)': {
+    fontSize: '0.75rem',
+    gap: '10px',
+  },
+
+  '@media (max-width: 780px)': {
+    fontSize: '0.73rem',
+    gap: '7px',
+  },
 })

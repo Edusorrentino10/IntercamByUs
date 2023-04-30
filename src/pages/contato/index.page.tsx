@@ -11,8 +11,26 @@ import {
   SpanBox,
 } from './styles'
 import Footer from '@/components/Footer'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+
+const sendContactFormSchema = z.object({
+  name: z.string().regex(/^([a-z\\-]+)$/i),
+  email: z.string(),
+  telefone: z.string(),
+  message: z.string(),
+})
+
+type SendContactFormData = z.infer<typeof sendContactFormSchema>
 
 export default function Contato() {
+  const { register, handleSubmit } = useForm<SendContactFormData>({
+    resolver: zodResolver(sendContactFormSchema),
+  })
+
+  async function handleSendHelpContact(data: SendContactFormData) {}
+
   return (
     <ContatoContainer>
       <Header />
@@ -23,18 +41,30 @@ export default function Contato() {
           WhatsApp neste espaço que criamos especialmente para você.
         </p>
         <ServicesContent>
-          <Form>
-            <input type="text" placeholder="Nome" required />
-            <input type="email" placeholder="Email" required />
+          <Form onSubmit={handleSubmit(handleSendHelpContact)}>
+            <input
+              type="text"
+              placeholder="Nome"
+              {...register('name')}
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              {...register('email')}
+              required
+            />
             <input
               type="number"
               placeholder="Telefone"
               pattern="[0-9]{10,11}"
+              {...register('telefone')}
               required
             />
             <label>Mensagem:</label>
             <textarea
               placeholder="Compartilhe aqui suas dúvidas e sugestões de forma detalhada."
+              {...register('message')}
               required
             />
             <input type="submit" />

@@ -38,6 +38,7 @@ export const globalStyles = globalCss({
   },
 
   'input, textarea': {
+    resize: 'none',
     outlineColor: '$blue',
   },
 })
