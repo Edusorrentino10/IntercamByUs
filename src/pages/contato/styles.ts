@@ -74,9 +74,14 @@ export const Form = styled('form', {
     cursor: 'pointer',
     fontWeight: 'bold',
     fontSize: '$default',
-    '&:hover': {
-      transition: '0.3s',
-      opacity: '0.96',
+    '&:(:not)(disabled)': {
+      '&:hover': {
+        transition: '0.3s',
+        opacity: '0.96',
+      },
+    },
+    '&:disabled': {
+      cursor: 'not-allowed',
     },
   },
 

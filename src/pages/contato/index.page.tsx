@@ -14,9 +14,10 @@ import Footer from '@/components/Footer'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
+import { api } from '@/lib/axios'
 
 const sendContactFormSchema = z.object({
-  name: z.string().regex(/^([a-z\\-]+)$/i),
+  name: z.string(),
   email: z.string(),
   telefone: z.string(),
   message: z.string(),
@@ -25,11 +26,34 @@ const sendContactFormSchema = z.object({
 type SendContactFormData = z.infer<typeof sendContactFormSchema>
 
 export default function Contato() {
-  const { register, handleSubmit } = useForm<SendContactFormData>({
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { isSubmitting },
+  } = useForm<SendContactFormData>({
     resolver: zodResolver(sendContactFormSchema),
   })
 
-  async function handleSendHelpContact(data: SendContactFormData) {}
+  async function handleSendHelpContact(data: SendContactFormData) {
+    try {
+      await api.post('/contact', {
+        name: data.name,
+        email: data.email,
+        telefone: data.telefone,
+        message: data.message,
+      })
+      reset()
+    } catch (err) {
+      console.log('bad request')
+    }
+  }
+
+  const watchName = watch('name')
+  const watchEmail = watch('email')
+  const watchTelefone = watch('telefone')
+  const watchMessage = watch('message')
 
   return (
     <ContatoContainer>
@@ -67,7 +91,16 @@ export default function Contato() {
               {...register('message')}
               required
             />
-            <input type="submit" />
+            <input
+              disabled={
+                !watchName ||
+                !watchEmail ||
+                !watchTelefone ||
+                !watchMessage ||
+                isSubmitting
+              }
+              type="submit"
+            />
           </Form>
           <VerticalLine />
           <WhatsappBox>
