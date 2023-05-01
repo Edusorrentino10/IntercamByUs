@@ -88,6 +88,7 @@ export const Form = styled('form', {
   '@media (max-width: 780px)': {
     width: '280px',
     gap: '15px',
+    marginTop: '20px',
 
     input: {
       fontSize: '0.75rem',
@@ -191,6 +192,10 @@ export const WhatsappBox = styled('div', {
     width: '280px',
     minHeight: '0',
     gap: '25px',
+
+    'input[type=submit]': {
+      marginBottom: '20px',
+    },
   },
 })
 

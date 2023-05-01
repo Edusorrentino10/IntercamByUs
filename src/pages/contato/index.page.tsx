@@ -99,6 +99,7 @@ export default function Contato() {
                 !watchMessage ||
                 isSubmitting
               }
+              value="Enviar"
               type="submit"
             />
           </Form>

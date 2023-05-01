@@ -9,6 +9,7 @@ import {
 import IceDown from '../../../../assets/geloinferior.png'
 import Image from 'next/image'
 import ImageBannerOrcamentoResponsivo from '@/components/Home/BannerOrcamento/ImageBanner2Responsivo'
+import { useRouter } from 'next/router'
 
 interface BannerOrcamentoProps {
   actived: boolean
@@ -19,13 +20,17 @@ export default function BannerOrcamento({
   actived,
   onChangeBanner,
 }: BannerOrcamentoProps) {
+  const router = useRouter()
+
   return (
     <BannerContainer changeBanner={actived}>
       <BannerContent>
         <Hero>
           <h1>SIMULE JÁ SEU ORÇAMENTO PERSONALIZADO!</h1>
           <p>Nossa equipe está pronta para atender às suas necessidades.</p>
-          <button disabled={actived}>Faça seu orçamento!</button>
+          <button disabled={actived} onClick={() => router.push('/contato')}>
+            Faça seu orçamento!
+          </button>
         </Hero>
         <ImageBannerOrcamentoResponsivo />
       </BannerContent>
