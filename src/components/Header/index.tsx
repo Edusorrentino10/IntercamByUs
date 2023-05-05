@@ -31,7 +31,7 @@ export function Header() {
 
   async function handleRedirectHome() {
     if (router.asPath !== '/') {
-      setIsLoading((state) => !isLoading)
+      setTimeout(() => setIsLoading(true), 300)
       setClickMenuMobile(false)
       await router.push('/')
       setIsLoading(false)
@@ -40,7 +40,7 @@ export function Header() {
 
   async function handleRedirectIntercambio() {
     if (router.asPath !== '/intercambio') {
-      setIsLoading((state) => !isLoading)
+      setTimeout(() => setIsLoading(true), 300)
       setClickMenuMobile(false)
       await router.push('/intercambio')
       setIsLoading(false)
@@ -49,7 +49,7 @@ export function Header() {
 
   async function handleRedirectDestinos() {
     if (router.asPath !== '/destinos') {
-      setIsLoading((state) => !isLoading)
+      setTimeout(() => setIsLoading(true), 300)
       setClickMenuMobile(false)
       await router.push('/destinos')
       setIsLoading(false)
@@ -58,7 +58,7 @@ export function Header() {
 
   async function handleRedirectSobreNos() {
     if (router.asPath !== '/sobre-nos') {
-      setIsLoading((state) => !isLoading)
+      setTimeout(() => setIsLoading(true), 300)
       setClickMenuMobile(false)
       await router.push('/sobre-nos')
       setIsLoading(false)
@@ -67,9 +67,36 @@ export function Header() {
 
   async function handleRedirectContato() {
     if (router.asPath !== '/contato') {
-      setIsLoading((state) => !isLoading)
+      setTimeout(() => setIsLoading(true), 300)
       setClickMenuMobile(false)
       await router.push('/contato')
+      setIsLoading(false)
+    }
+  }
+
+  async function handleRedirectBeneficios() {
+    if (router.asPath !== '/beneficios') {
+      setTimeout(() => setIsLoading(true), 300)
+      setClickMenuMobile(false)
+      await router.push('/beneficios')
+      setIsLoading(false)
+    }
+  }
+
+  async function handleRedirectLogin() {
+    if (router.asPath !== '/login') {
+      setTimeout(() => setIsLoading(true), 300)
+      setClickMenuMobile(false)
+      await router.push('/login')
+      setIsLoading(false)
+    }
+  }
+
+  async function handleRedirectCadastrar() {
+    if (router.asPath !== '/cadastrar') {
+      setTimeout(() => setIsLoading(true), 300)
+      setClickMenuMobile(false)
+      await router.push('/cadastrar')
       setIsLoading(false)
     }
   }
@@ -107,27 +134,36 @@ export function Header() {
               Contato
             </li>
           </MenuNavigation>
-          {userLogged && (
+          {!userLogged && (
             <AuthSection menuActived={clickMenuMobile}>
               <LoginSection>
                 <FiUser size={clickMenuMobile ? 28 : 23} color="#F3B229" />
                 <span
                   style={{ outlineColor: '#F3B229', padding: '5px' }}
                   tabIndex={6}
+                  onClick={handleRedirectLogin}
                 >
                   Entrar
                 </span>
               </LoginSection>
-              <button style={{ outlineColor: '#F3B229' }}>Cadastrar</button>
+              <button
+                style={{ outlineColor: '#F3B229' }}
+                onClick={handleRedirectCadastrar}
+              >
+                Cadastrar
+              </button>
             </AuthSection>
           )}
-          {!userLogged && (
+          {userLogged && (
             <MenuUserSection menuActived={clickMenuMobile}>
               <p>
                 Olá, <strong>Eduardo</strong>!
               </p>
               <p>
-                <SpanBeneficios>Meus Benefícios</SpanBeneficios> <span>| </span>
+                <SpanBeneficios onClick={handleRedirectBeneficios}>
+                  Meus Benefícios
+                </SpanBeneficios>{' '}
+                <span>| </span>
                 <SpanLogout>Sair</SpanLogout>
               </p>
             </MenuUserSection>

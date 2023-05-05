@@ -28,7 +28,10 @@ export default function BannerOrcamento({
         <Hero>
           <h1>SIMULE JÁ SEU ORÇAMENTO PERSONALIZADO!</h1>
           <p>Nossa equipe está pronta para atender às suas necessidades.</p>
-          <button disabled={actived} onClick={() => router.push('/contato')}>
+          <button
+            disabled={actived}
+            onClick={() => router.push('/intercambio')}
+          >
             Faça seu orçamento!
           </button>
         </Hero>
