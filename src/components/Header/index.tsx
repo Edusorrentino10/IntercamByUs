@@ -22,7 +22,7 @@ export function Header() {
   const router = useRouter()
 
   const [clickMenuMobile, setClickMenuMobile] = useState(false)
-  const [userLogged] = useState(false) // tem que por o setUserLogger, tirei por causa do ESLint
+  const [userLogged] = useState(true) // tem que por o setUserLogger, tirei por causa do ESLint
   const [isLoading, setIsLoading] = useState(false)
 
   function handleMenuMobile() {
