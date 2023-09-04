@@ -1,9 +1,8 @@
 import { styled } from '@/styles'
 
 export const OportunidadesContainer = styled('div', {
-  marginTop: '620px',
   position: 'relative',
-  padding: '100px 0px 150px 0px',
+  padding: '0px 0px 150px 0px', // sem opcao personalizada: '100px ...',
 
   '@media (max-width: 760px)': {
     padding: '100px 0px 290px 0px',

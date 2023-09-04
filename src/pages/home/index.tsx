@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import OportunidadesSection from './components/Oportunidades'
 import AvaliacoesSection from './components/Avaliacoes'
 import Footer from '@/components/Footer'
+import OpcaoPersonalizadaSection from './components/OpcaoPersonalizada'
 
 export default function Home() {
   const [changeBanner, setChangeBanner] = useState(true)
@@ -32,6 +33,7 @@ export default function Home() {
         actived={changeBanner}
         onChangeBanner={handleChangeBanner}
       />
+      <OpcaoPersonalizadaSection />
       <OportunidadesSection />
       <AvaliacoesSection />
       <Footer />
